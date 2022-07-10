@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Projekt1
 {
-    internal class MyDbContext : DbContext
+    public class MyDbContext : DbContext
     {
         public DbSet<Person> Person { get; set; }
         public DbSet<Income> Incomes { get; set; }
@@ -28,13 +28,13 @@ namespace Projekt1
         public static void Upsert(this DbSet<Person> dbSet, Person @new)
         {
             //AsNoTracking jest po to żeby EF nie śledziło obiektu pobieranego do sprawdzenia czy encja istnieje
-            var existing = dbSet.AsNoTracking().FirstOrDefault(inDb => inDb.Id == @new.Id);
+            var existing = dbSet.AsNoTracking().FirstOrDefault(n=>n.Id == @new.Id);
             if (existing is null) dbSet.Add(@new);
             else dbSet.Update(@new);
         }
         public static void Upsert(this DbSet<Income> dbSet, Income @new)
         {
-            var existing = dbSet.AsNoTracking().FirstOrDefault(inDb => inDb.Id == @new.Id);
+            var existing = dbSet.AsNoTracking().FirstOrDefault(n => n.Id == @new.Id);
             if (existing is null) dbSet.Add(@new);
             else dbSet.Update(@new);
         }
@@ -42,7 +42,7 @@ namespace Projekt1
         public static void Upsert(this DbSet<Outcome> dbSet, Outcome @new)
         {
             //AsNoTracking jest po to żeby EF nie śledziło obiektu pobieranego do sprawdzenia czy encja istnieje
-            var existing = dbSet.AsNoTracking().FirstOrDefault(inDb => inDb.Id == @new.Id);
+            var existing = dbSet.AsNoTracking().FirstOrDefault(n => n.Id == @new.Id);
             if (existing is null) dbSet.Add(@new);
             else dbSet.Update(@new);
         }

@@ -1,0 +1,31 @@
+﻿<Window x:Class="Projekt2_2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projekt2_2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <DataGrid x:Name="PeopleGrid" IsReadOnly="True" AutoGenerateColumns="False" Margin="0,10,446,0" >
+        <DataGrid.Columns>
+            <DataGridTextColumn Header="Imię" Binding="{Binding Path='Name'}">
+            </DataGridTextColumn>
+            <DataGridTextColumn Header="Nazwisko" Binding="{Binding Path='LastName'}">
+            </DataGridTextColumn>
+            <DataGridTemplateColumn>
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <Button CommandParameter="{Binding Path='Id'}" Click="GoToOutcomes">Wydatki</Button>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+            <DataGridTemplateColumn>
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <Button CommandParameter="{Binding Path='Id'}" Click="GoToIncomes">Dochody</Button>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+        </DataGrid.Columns>
+    </DataGrid>
+</Window>

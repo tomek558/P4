@@ -6,8 +6,7 @@ namespace Projekt1
     public class Person
     {
         [Key]
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.None)]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]

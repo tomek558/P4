@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Projekt1
 {
-    internal class AddOutcome
+    internal class AddIncome
     {
         public void Add(MyDbContext ctx)
         {
@@ -20,14 +20,14 @@ namespace Projekt1
             int typePersonId = Convert.ToInt32(Console.ReadLine());
 
 
-            var addedOutcome = new Outcome
+            var addedIncome = new Income
             {
                 Name = typeName,
                 Value = typeValue,
                 PersonId = Guid.NewGuid()
             };
 
-            ctx.Outcomes.Add(addedOutcome);
+            ctx.Incomes.Add(addedIncome);
             ctx.SaveChanges();
         }
     }
